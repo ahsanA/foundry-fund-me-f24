@@ -9,7 +9,7 @@ contract FundMeTest is Test {
     FundMe fundMe;
 
     function setUp() external {
-        fundMe = new FundMe();
+        fundMe = new FundMe());
     }
 
     function testTestMinimumDollarIsFive() public {
@@ -28,5 +28,14 @@ contract FundMeTest is Test {
         // Assert
         console.log(owner);
         assertEq(owner, address(this));
+    }
+
+    function testPriseFeedVersionIsAccurate() public {
+        // Arrange
+        // Act
+        uint256 version = fundMe.getVersion();
+        // Assert
+        console.log(version);
+        assertEq(version, 4);
     }
 }
